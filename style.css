@@ -4,6 +4,16 @@
     flex: 0 1 auto;
 }
 
+.filled {
+    background-color: black;
+}
+
 .row {
     display: flex;
+    flex: 0 1 auto;
+}
+
+.grid {
+    display: flex;
+    flex-direction: column;
 }

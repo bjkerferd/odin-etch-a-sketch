@@ -1,11 +1,16 @@
 function renderGrid(gridSize=960, nPx=16) {
     pxSize = gridSize / nPx;
-
     const gridContainer = document.querySelector("#container");
-    // appendPx(gridContainer, pxSize);
-    // appendPxRow()
-    const pxRow = createPxRow(pxSize, nPx);
-    gridContainer.appendChild(pxRow);
+    gridContainer.classList.add("grid");
+    gridContainer.addEventListener("mousedown", (e) => {
+        e.preventDefault(); // Without this the click event tries to drag a filled div
+        painting = true
+    });
+
+    for (let i = 0; i < nPx; i++) {
+        const pxRow = createPxRow(pxSize, nPx);
+        gridContainer.appendChild(pxRow);
+    }
 }
 
 function appendPx(parent, pxSize) {
@@ -19,6 +24,10 @@ function createPx(size) {
     const px = document.createElement("div");
     px.classList.add("pixel");
     px.style.width = pxSizeStr;
+    px.addEventListener("mousemove", (e) => {
+        if (e.buttons === 1) px.classList.add("filled");
+    })
+
     return px
 }
 
@@ -36,4 +45,4 @@ function appendPxRow(parent, pxSize, nPx) {
     pxRow = createPxRow()
 }
 
-renderGrid(320, 16);
+renderGrid(400, 40);
