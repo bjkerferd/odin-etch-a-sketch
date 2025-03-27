@@ -1,5 +1,5 @@
 .pixel {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     aspect-ratio: 1;
     flex: 0 1 auto;
 }
@@ -21,4 +21,6 @@
 .grid {
     display: flex;
     flex-direction: column;
+    border: 1px solid black;
+    text-align: center;
 }

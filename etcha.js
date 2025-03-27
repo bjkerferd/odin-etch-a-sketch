@@ -7,6 +7,7 @@ function renderGrid(gridSize=960, nPx=16) {
     pxSize = gridSize / nPx;
     const gridContainer = document.querySelector("#container");
     gridContainer.classList.add("grid");
+    gridContainer.style.width = `${gridSize}px`;
     gridContainer.addEventListener("mousedown", (e) => {
         e.preventDefault(); // Without this the click event tries to drag a filled div
         painting = true
