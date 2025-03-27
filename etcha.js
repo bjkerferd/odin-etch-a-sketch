@@ -1,3 +1,8 @@
+const GRID_DIMENSION = 960;
+const updateGridBtn = document.querySelector("#updateGrid");
+
+updateGridBtn.addEventListener("click", getGridSize);
+
 function renderGrid(gridSize=960, nPx=16) {
     pxSize = gridSize / nPx;
     const gridContainer = document.querySelector("#container");
@@ -45,4 +50,16 @@ function appendPxRow(parent, pxSize, nPx) {
     pxRow = createPxRow()
 }
 
-renderGrid(400, 40);
+function getGridSize() {
+    let gridSize = prompt("How big would you like the pixel grid (max 100x100)?");
+    if (gridSize > 100) gridSize = 100;
+    removeGrid()
+    renderGrid(GRID_DIMENSION, gridSize);    
+}
+
+function removeGrid() {
+    const gridContainer = document.querySelector("#container");
+    gridContainer.innerHTML = "";
+}
+
+getGridSize();

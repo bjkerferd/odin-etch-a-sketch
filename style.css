@@ -4,6 +4,11 @@
     flex: 0 1 auto;
 }
 
+.pixel:hover {
+    background-color: black;
+    opacity: 1;
+}
+
 .filled {
     background-color: black;
 }
